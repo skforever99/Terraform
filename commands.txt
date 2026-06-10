@@ -10,3 +10,5 @@ To delete our changes - terraform destroy
 
 adding auto-approve flag - terraform apply -auto-approve
                            terraform destroy -auto-approve
+
+generating ssh keys- ssh-keygen
