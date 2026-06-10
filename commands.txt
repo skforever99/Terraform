@@ -1,0 +1,12 @@
+initalise terraform - terraform init
+
+validate our configuration file - terraform validate
+
+To see our plan - Terraform plan
+
+To apply our changes - terraform apply 
+
+To delete our changes - terraform destroy
+
+adding auto-approve flag - terraform apply -auto-approve
+                           terraform destroy -auto-approve
