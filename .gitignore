@@ -1,6 +1,6 @@
 # Terraform cache
 **/.terraform/*
-
+*terraform.lock*
 # Terraform state files
 *.tfstate
 *.tfstate.*
@@ -39,3 +39,5 @@ override.tf.json
 #aws_credentials
 
 aws.txt
+ec2-key
+ec2-key.pub
