@@ -46,6 +46,7 @@ resource "aws_instance" "sunil-ec2" {
   security_groups = [aws_security_group.sg-1.name]
   ami             = var.ami
   instance_type   = var.ec-2-instance-type
+  user_data = file("install_nginx.sh")
 
   tags = {
     Name = "terraform-ec2"
