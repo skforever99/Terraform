@@ -51,3 +51,5 @@ resource "aws_instance" "sunil-ec2" {
     Name = "terraform-ec2"
   }
 }
+
+#use this command to connect- ssh -i ec2-key ec2-user@ec2-24-905-781-125.compute-1.amazonaws.com
