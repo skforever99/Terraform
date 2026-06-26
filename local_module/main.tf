@@ -3,7 +3,7 @@ module "my-local-testing-module" {
   env            = "testing"
   ami            = "ami-0152204c1a187337c"
   instance-type  = "t3.micro"
-  bucket-name    = "sunil-1k99-9"
+  bucket-name    = "sunil-test-env-1k99-9"
   instance-count = 1
 }
 
@@ -12,7 +12,7 @@ module "my-local-prod-module" {
   source         = "./sunil_module"
   env            = "prod"
   ami            = "ami-0152204c1a187337c"
-  instance-type  = "t3.micro"
-  bucket-name    = "sunil-1k99-9"
+  instance-type  = "t3.large"
+  bucket-name    = "sunil-prod-env-1k99-9"
   instance-count = 3
 }
