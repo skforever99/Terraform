@@ -1,0 +1,42 @@
+# generating key pair
+
+resource "aws_key_pair" "my-key" {
+  key_name   = "terraform-ec2-key"
+  public_key = file("ec2-key.pub")
+}
+
+# using default vpc
+
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
+
+# security groups
+
+resource "aws_security_group" "sg-1" {
+  name        = "security-group-1"
+  description = " this is created by terraform"
+  vpc_id      = aws_default_vpc.default.id #interpolation = fetching values from other block
+  tags = {
+    name = " terraform-sg "
+  }
+  
+}
+
+resource "aws_instance" "sunil-ec2" {
+  key_name        = aws_key_pair.my-key.key_name
+  security_groups = [aws_security_group.sg-1.name]
+  ami             = var.ami
+  instance_type   = var.instance-type
+
+
+  count = var.instance-count
+
+  tags = {
+    Name = "${var.env}-ec2"
+  }
+}
+
+#use this command to connect- ssh -i ec2-key ec2-user@ec2-24-905-781-125.compute-1.amazonaws.com
